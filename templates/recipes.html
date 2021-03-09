@@ -1,17 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>oh my cook!</title>
-</head>
-<body>
-     {% for recipe in recipes %}
+{% extends "base.html" %}
+{% block content %}
+     <h2>extending base template</h2>
+    {% for recipe in recipes %}
         {{ recipe.category_name }}<br>
         {{ recipe.recipe_name }}<br>
         {{ recipe.ingredients }}<br>
         {{ recipe.is_quick }}<br>
         {{ recipe.date_upload }}<br>
     {% endfor %}
-</body>
-</html>
+
+{% endblock %}    
