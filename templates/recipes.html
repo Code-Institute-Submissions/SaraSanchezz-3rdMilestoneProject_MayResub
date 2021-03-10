@@ -1,12 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
-     <h2>extending base template</h2>
+     
     {% for recipe in recipes %}
         {{ recipe.category_name }}<br>
         {{ recipe.recipe_name }}<br>
         {{ recipe.ingredients }}<br>
-        {{ recipe.is_quick }}<br>
-        {{ recipe.date_upload }}<br>
+        {{ recipe.cooking_time }}<br>
+        {{ recipe.allergens }}<br>
+        {{ recipe.create_at }}<br>
+        {{ recipe.preparation_steps }}<br>
+        {{ recipe.user }}<br>
     {% endfor %}
 
 {% endblock %}    
