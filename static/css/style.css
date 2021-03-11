@@ -13,3 +13,8 @@
         min-height: 800px;
 
 }
+.flashes h6 {
+    line-height: 4px;
+    background-color: dimgrey;
+    
+}

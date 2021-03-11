@@ -1,4 +1,4 @@
-import os 
+import os
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
@@ -29,10 +29,26 @@ def get_recipes():
 # function for registration
 @app.route("/register", methods=["GET", "POST"])
 def register():
-    return render_template("register.html")  
+    if request.method == "POST":
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
+        if existing_user:
+            flash("Username already exists")
+            return redirect(url_for("register"))
+
+        register = {
+            "username": request.form.get("username").lower(),
+            "password": generate_password_hash(request.form.get("password"))
+        }
+        mongo.db.users.insert_one(register)
+
+        session["user"] = request.form.get("username").lower
+        flash("The Registration is been Successfull!")
+    return render_template("register.html")
 
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=True)  
+            debug=True)
