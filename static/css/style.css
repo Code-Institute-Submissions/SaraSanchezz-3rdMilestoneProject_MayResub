@@ -19,4 +19,13 @@
 
 h4 {
     font-weight: 700;
+    color: #FF7F50;
+    letter-spacing: 7px;
+}
+
+p {
+    font-size: 20px;
+    font-weight: 500;
+    color: #FF7F50;
+  
 }
