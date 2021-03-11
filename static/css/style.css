@@ -2,3 +2,14 @@
     text-align: center;
     padding-left: 4px;
 }
+
+#hero2 {
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)),
+        url("../images/ingredients.jpg");
+        background-size: cover;
+        padding-top: 90px;
+        min-height: 800px;
+
+}
