@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <div class="row">
+  <div class="row">
      <div class="col s6 offset-s3">
         <ul class="collapsible">
             {% for recipe in recipes %}
@@ -9,21 +9,11 @@
             <li>
                 <div class="collapsible-header  grey ">
                     <i class=""></i>
-                    <strong>{{ recipe.category_name }}</strong> : {{ recipe.cooking_time }} : {{ recipe.dietary }}
+                    <strong>{{ recipe.recipe_name }}</strong> - {{ recipe.cooking_time }} - {{ recipe.dietary }}
                 </div>
                 <div class="collapsible-body">
-                    <strong>{{ recipe.recipe_name }}</strong>
-                    <ul>
-                      <li>
-                        {{ recipe.ingredients }}
-                      </li>
-                    </ul>
-                    <ol>
-                      <li>
-                        {{ recipe.preparation_steps }}
-                      </li>
-                    </ol>
-                    
+                    <strong>{{ recipe.category_name }}</strong>
+                <a href="{{url_for('recipe_description', recipe_id=recipe._id)}}" class=" btn btn_small red ">GO</a>  
                 </div>
             </li>
           {% endfor %}
@@ -31,7 +21,6 @@
         
     </div>
   </div>
-        
   
 
 {% endblock %}    
