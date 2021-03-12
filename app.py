@@ -19,15 +19,15 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
-# function will render main page
 @app.route("/get_recipes")
+# function will render recipes page
 def get_recipes():
     recipes = list(mongo.db.recipes.find())
     return render_template("recipes.html", recipes=recipes)
 
 
-# function for registration
 @app.route("/register", methods=["GET", "POST"])
+# function for registration
 def register():
     if request.method == "POST":
         existing_user = mongo.db.users.find_one(
@@ -49,8 +49,8 @@ def register():
     return render_template("register.html")
 
 
-# function for log in
 @app.route("/login", methods=["GET", "POST"])
+# function for log in
 def login():
     if request.method == "POST":
         existing_user = mongo.db.users.find_one(
@@ -74,8 +74,8 @@ def login():
     return render_template("login.html")
 
 
-# function for username's profile
 @app.route("/profile/<username>", methods=["GET", "POST"])
+# function for username's profile
 def profile(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
@@ -85,12 +85,18 @@ def profile(username):
     return redirect(url_for("login"))
 
 
-# function for logging out
 @app.route("/logout")
+# function for logging out
 def logout():
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
+
+
+@app.route("/add_recipe")
+# function for add_recipe
+def add_recipe():
+    return render_template("add_recipe.html")
 
 
 if __name__ == "__main__":
