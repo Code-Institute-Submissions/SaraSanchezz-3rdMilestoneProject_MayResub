@@ -41,3 +41,6 @@ textarea {
   resize: none;
 }
 
+label textarea{
+        vertical-align: middle;
+    }

@@ -17,23 +17,42 @@
             <label for="cooking_time">Cooking time</label>
             </div>
         <div class="row">
-            <div class="input-field col s12 m6">
+            <div class="input-field col s12 m4">
             <i class=" fas fa-pencil-alt prefix"></i>
             <input id="recipe_name" name="recipe_name" minlength="5" maxlength="30" type="text" class="validate" required>
             <label for="recipe_name">Recipe name</label>
             </div>  
+            <div class="input-field col s12 m4">
+                <select id="category_name" name="category_name" class="validate" required>
+                <option value="" disabled selected>Pick Category</option>
+                {% for category in categories%}
+                    <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                {% endfor %}
+                </select>
+                <label for="category_name"> Category</label>
+            </div>
+            <div class="input-field col s12 m4 ">
+                <select id="dietary_option" name="dietary_option" class="validate" multiple>
+                <option value="" disabled selected>Pick dietary options if applicable</option>
+                 {% for dietary in dietaries %}
+                    <option value="{{ dietary.dietary_name }}">{{ dietary.dietary_name }}</option>
+                  {% endfor %}
+                </select>
+                <label for="dietary_option">Dietary Option</label>
+            </div>
         <div class="row">
             <div class="input-field col s12 ">
             <i class=" fas fa-list-ul prefix"></i>
             <textarea id="ingredients" name="ingredients" minlength="5" maxlength="150" type="text" class="validate"  required></textarea>
+            <label for="recipe_name" > Ingredients</label>
             
             </div>
         </div>
          <div class="row">
-            <div class="input-field col s12 ">
+            <div class="input-field col s12  ">
             <i class=" fas fa-list-ol prefix"></i>    
             <textarea id="preparation_steps" name="preparation_steps" minlength="5" maxlength="150" type="text"  class="validate"  required></textarea>
-            
+                <label for="recipe_name" > Preparation</label>
             </div>
         </div>
       </div>
