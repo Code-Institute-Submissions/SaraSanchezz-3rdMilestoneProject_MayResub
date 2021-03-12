@@ -1,64 +1,32 @@
 {% extends "base.html" %}
 {% block content %}
-     
-    {% for recipe in recipes %}
-        {{ recipe.category_name }}<br>
-        {{ recipe.recipe_name }}<br>
-        {{ recipe.ingredients }}<br>
-        {{ recipe.cooking_time }}<br>
-        {{ recipe.allergens }}<br>
-        {{ recipe.create_at }}<br>
-        {{ recipe.preparation_steps }}<br>
-        {{ recipe.user }}<br>
-    {% endfor %}
-    
-     <!--carouselfor home page<div class="carousel">
-        <a class="carousel-item" href="#one!"><img src=""></a>
-        <a class="carousel-item" href="#two!"><img src=""></a>
-        <a class="carousel-item" href="#three!"><img src=""></a>
-        <a class="carousel-item" href="#four!"><img src=""></a>
-        <a class="carousel-item" href="#five!"><img src=""></a>
-    </div>-->
+
     <div class="row">
      <div class="col s6 offset-s3">
         <ul class="collapsible">
+            {% for recipe in recipes %}
+
             <li>
-                <div class="collapsible-header  grey "><i class=""></i>First</div>
-                <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                <div class="collapsible-header  grey ">
+                    <i class=""></i>
+                    <strong>{{ recipe.category_name }}</strong> : {{ recipe.cooking_time }} : {{ recipe.allergens }}
+                </div>
+                <div class="collapsible-body">
+                    <strong>{{ recipe.recipe_name }}</strong>
+                    <ul>
+                      <li>
+                        {{ recipe.ingredients }}
+                      </li>
+                    </ul>
+                    <ol>
+                      <li>
+                        {{ recipe.preparation_steps }}
+                      </li>
+                    </ol>
+                    
+                </div>
             </li>
-            <li>
-                <div class="collapsible-header "><i class=""></i>Second</div>
-                <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-            </li>
-            <li>
-                <div class="collapsible-header grey"><i class=""></i>Third</div>
-                <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-            </li>
-            <li>
-                <div class="collapsible-header grey"><i class=""></i>Third</div>
-                <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-            </li>
-            <li>
-                <div class="collapsible-header grey"><i class=""></i>Third</div>
-                <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-            </li>
-            <li>
-                <div class="collapsible-header grey"><i class=""></i>Third</div>
-                <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-            </li>
-            <li>
-                <div class="collapsible-header grey"><i class=""></i>Third</div>
-                <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-            </li>
-        
-        
-        
-        
-        
-        
-        
-        
-        
+          {% endfor %}
         </ul>
         
     </div>
