@@ -21,21 +21,26 @@
         <div class="row"> 
             <div class="input-field col s12 m4">
                 <i class=" fas fa-pencil-alt prefix"></i>
-                <input id="recipe_name" name="recipe_name" minlength="5" maxlength="30" type="text" class="validate" required>
+                <input id="recipe_name" name="recipe_name" minlength="5" value="{{recipe.recipe_name}}"
+                 maxlength="30" type="text" class="validate" required>
                 <label for="recipe_name">Recipe name</label>
             </div>  
             <div class="input-field col s12 m4">
                 <select id="category_name" name="category_name" class="validate" required>
-                <option  disabled selected>Pick Category</option>
-                {% for category in categories%}
-                    <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                <option  disabled>Pick Category</option>
+                {% for category in categories %}
+                    {% if category.category_name == recipe.category %}
+                        <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
+                    {% else %}
+                        <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                    {% endif %}
                 {% endfor %}
                 </select>
                 <label for="category_name"> Category</label>
             </div>
             <div class="input-field col s12 m4 ">
                 <select id="dietary_option" name="dietary_option" class="validate" multiple>
-                <option  disabled selected>Pick dietary options</option>
+                <option  disabled >Pick dietary options</option>
                 {% for dietary in dietary %}
                     <option value="{{ dietary.dietary_option }}">{{ dietary.dietary_option }}</option>
                 {% endfor %}
@@ -46,7 +51,8 @@
         <div class="row">
             <div class="input-field col s12 ">
                 <i class=" fas fa-list-ul prefix"></i>
-                <textarea id="ingredients" name="ingredients" minlength="5" maxlength="700" type="text" class="validate"  required></textarea>
+                <textarea id="ingredients" name="ingredients" minlength="5"
+                 maxlength="700" type="text" class="validate"  required>{{ recipe.ingredients }}</textarea>
                 <label for="recipe_name" > Ingredients</label>
             </div>
         </div>
@@ -54,7 +60,8 @@
          <div class="row">
                 <div class="input-field col s12  ">
                 <i class=" fas fa-list-ol prefix"></i>    
-                <textarea id="preparation_steps" name="preparation_steps" minlength="5" maxlength="4000" type="text"  class="validate"  required></textarea>
+                <textarea id="preparation_steps" name="preparation_steps" minlength="5"
+                 maxlength="4000" type="text"  class="validate"  required>{{ recipe.preparation_steps }}</textarea>
                 <label for="preparation_steps" > Preparation</label>
             </div>
         </div>
@@ -63,7 +70,8 @@
 <!--submitt button--> 
      <div class="row">
          <div class="col s12 center align">
-            <button type="submit" class="btn-large red darken-2">Edit Recipe</button>
+            <a href="{{url_for('get_recipes')}}" class="btn-large red darken-2">CANCEL CHANGES</a>
+            <button type="submit" class="btn-large green">EDIT RECIPE</button>
          </div>
      </div>
    </form>

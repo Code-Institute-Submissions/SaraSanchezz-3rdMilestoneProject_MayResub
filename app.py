@@ -102,7 +102,7 @@ def add_recipe():
             "category_name": request.form.get("category_name"),
             "recipe_name": request.form.get("recipe_name"),
             "ingredients": request.form.getlist("ingredients"),
-            "preparation_spteps": request.form.getlist("preparation_steps"),
+            "preparation_steps": request.form.getlist("preparation_steps"),
             "dietary": request.form.get("dietary_options"),
             "created_by": session["user"]
         }
