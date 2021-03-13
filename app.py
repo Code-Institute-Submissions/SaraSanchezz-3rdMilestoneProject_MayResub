@@ -41,9 +41,11 @@ def register():
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password"))
         }
+        print(request.form.get("username"))
+        print(request.form.get("password"))
         mongo.db.users.insert_one(register)
 
-        session["user"] = request.form.get("username").lower
+        session["user"] = request.form.get("username").lower()
         flash("The Registration is been Successfull!")
         return redirect(url_for("profile", username=session["user"]))
 
@@ -103,7 +105,7 @@ def add_recipe():
             "recipe_name": request.form.get("recipe_name"),
             "ingredients": request.form.getlist("ingredients"),
             "preparation_steps": request.form.getlist("preparation_steps"),
-            "dietary": request.form.get("dietary_options"),
+            "dietary_options": request.form.get("dietary_options"),
             "created_by": session["user"]
         }
         mongo.db.recipes.insert_one(recipe)
@@ -116,12 +118,14 @@ def add_recipe():
         "add_recipe.html", categories=categories, dietary=dietary)
 
 
+# function for main recipe_description single page open
 @app.route("/recipe_description/<recipe_id>")
 def recipe_description(recipe_id):
     the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     return render_template("recipe_description.html", recipe=the_recipe)
 
 
+# function for recipe update
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
     if request.method == "POST":
@@ -130,7 +134,8 @@ def edit_recipe(recipe_id):
             "recipe_name": request.form.get("recipe_name"),
             "ingredients": request.form.getlist("ingredients"),
             "preparation_steps": request.form.getlist("preparation_steps"),
-            "dietary": request.form.get("dietary_options"),
+            "dietary_options": request.form.getlist("dietary_options"),
+            "cookin_time": request.form.get("cooking_time"),
             "created_by": session["user"]
         }
         mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
@@ -143,6 +148,7 @@ def edit_recipe(recipe_id):
         recipe=recipe, categories=categories, dietary=dietary)
 
 
+# function for deleting a recipe
 @app.route("/delete_recipe<recipe_id>")
 def delete_recipe(recipe_id):
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
@@ -150,6 +156,7 @@ def delete_recipe(recipe_id):
     return redirect(url_for("get_recipes"))
 
 
+# function for searching between dictionaries
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")

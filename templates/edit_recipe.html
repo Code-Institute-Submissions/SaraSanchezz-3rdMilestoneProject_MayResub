@@ -39,13 +39,13 @@
                 <label for="category_name"> Category</label>
             </div>
             <div class="input-field col s12 m4 ">
-                <select id="dietary_option" name="dietary_option" class="validate" multiple>
+                <select id="dietary_options" name="dietary_options" class="validate" multiple>
                 <option  disabled >Pick dietary options</option>
                 {% for dietary in dietary %}
-                    <option value="{{ dietary.dietary_option }}">{{ dietary.dietary_option }}</option>
+                    <option value="{{ dietary.dietary_options }}">{{ dietary.dietary_option }}</option>
                 {% endfor %}
                 </select>
-                <label for="dietary_option">Dietary Option</label>
+                <label for="dietary_options">Dietary Options</label>
             </div>
     <!--Ingredients--> 
         <div class="row">
