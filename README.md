@@ -1,18 +1,18 @@
 # OH MY COOK! #
-## Online Cookbook##
+## Online Cookbook ##
 
  
 ## UX ##
 
 Project Goals:
- * Create an interactive , attactrive and responsive online cookbook which offers recipes for Thermomix.
- * Is not requiered to sign up on the website to access it content, however if registered you take part of the site growth,
+ * Create an interactive , attractive and responsive online cookbook which offers recipes for Thermomix.
+ * Sining up on the website is not requiered to access his content, however if registered you can take part of the site growth,
  as well as having access to features that external users will not have. (CRUD)
  
 ### Design Process ###
 
 
-Create an online cookbook interactive between the users of the community and others promoting how Thermomix helps
+Create an online cookbook interactive between the users of the community and others, promoting how Thermomix helps
 on a day to day basis and makes the process much easier.
 To sketch the frontend part of the project I have used Blasamiq wireframes: 
 
@@ -26,12 +26,12 @@ To sketch the frontend part of the project I have used Blasamiq wireframes:
 ## Genral Features ##
 
 The website counts with four main pages visible for all users as Recipes or Home Page, Recipe_description which linkable from any recipe and 
-will display the full info about each recipe of them, separately. The access path for the full recipe is clinking on the GO button on the collapsible
+will display the full info about each recipe of them, separately. The access path for the full recipe is clicking on the GO button on the colapsible
 card which is a index of all recipes.
 The Home or Recipes page also adverts and provides information about Thermomix, I do this choosing a very visual approach,
 inserting a Carousel from Materialize.
-Log in page with a linked as well for Sign In and the opposite in case any user mistakes,
-ann once we are In you are welcomed by a personalised profile page which has also the search for recipes  feauture.
+Log in page with a link as well for Sign In and the opposite in case any user mistakes,
+and once we are In, you are welcomed by a personalised profile page which has also the search for recipes  feauture.
 The Sig In page directs you to the Registration Page which inputs the user details into the MongoDB database.
 At last, we have the log out page which directs you to the Log In page back. 
 
@@ -45,16 +45,15 @@ All registered users have access to the CRUD functionality:
 
 
 Technologies Used:
- 1. HTML5 : Used to create the form and the content of the web site
-	te.
+ 1. HTML5 : Used to create the form and the content of the web site.
  2.	CSS3 : Used to style the HTML
- 3. Materialize Frameworks: Used some components; Header , footer and the card layout. 
+ 3. Materialize Frameworks: Used some components, Header and card layout. 
     Also used the grid system to make the website responsive for all size devices.
  4. JavaScript: For interactivity.
- 5. JQuery The project uses JQuery to simplify DOM manipulation.
- 4. Gitpod and Github to write , test and deploy my code. 
+ 5. JQuery : The project uses JQuery to simplify DOM manipulation.
+ 4. Gitpod and Github : to write , test and deploy my code. 
  5. Heroku : to Deploy my project and store sensible data variables.
- 6. Python, Flask and Json
+ 6. Python3, Flask and Json
  7. Installed few liabraries :
    **PyMongo
    **Flask
@@ -97,11 +96,11 @@ This project was entirely built in Gitpod and deployed in Heroku and GitHub.
 
 Deployment steps:
 
-1. Log in into my GitHub 
-2. Go to my repositories
-3. choose the repository called 3rdMilestoneProject 
-4. Settings
-5. Select Master branch
+1. Log in into my GitHub. 
+2. Go to my repositories.
+3. choose the repository called 3rdMilestoneProject.
+4. Settings.
+5. Select Master branch.
 6. Validate selection.
 7. The ulr of the website is displayed.
 
@@ -110,12 +109,12 @@ You can see the website [GitHub]()
 
 Steps to run the code locally:
 
-1. Open GitHub
-2. Select desired repository
-3. Click on clone or download .
+1. Open GitHub.
+2. Select desired repository.
+3. Click on clone or download.
 4. Start your IDE.
 5. Open the terminal.
-6. Type git clone followed by the code of the repository at the terminal
+6. Type git clone followed by the code of the repository at the terminal.
 
 ## Credits ## 
 
