@@ -107,6 +107,7 @@ def add_recipe():
             "created_by": session["user"]
         }
         mongo.db.recipes.insert_one(recipe)
+        flash("Added!")
         return redirect(url_for("get_recipes"))
 
     categories = mongo.db.categories.find().sort("category_name")
@@ -123,6 +124,17 @@ def recipe_description(recipe_id):
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
+    if request.method == "POST":
+        update = {
+            "category_name": request.form.get("category_name"),
+            "recipe_name": request.form.get("recipe_name"),
+            "ingredients": request.form.getlist("ingredients"),
+            "preparation_steps": request.form.getlist("preparation_steps"),
+            "dietary": request.form.get("dietary_options"),
+            "created_by": session["user"]
+        }
+        mongo.db.recipes.update({"id_": ObjectId}, update)
+        flash("Updated!")
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     categories = mongo.db.categories.find().sort("category_name")
     dietary = mongo.db.dietary.find().sort("dietary_option", 1)
