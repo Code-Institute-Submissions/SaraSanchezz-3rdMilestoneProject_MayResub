@@ -2,16 +2,30 @@
 {% block content %}
 
 
-<section >
+
     
-    <!--card panel-->
+    <!--card panel for title-->
     <div class="row">
     <div class="col s12 m8 offset-m2">
-      
        <h4 class="center-align light-red-text text-darken-4">
            {{ username }}'s Cookbook
        </h4>
       </div>
     </div>
-</section>
+    <!--card panel for search recipes-->
+    <div class="row card-panel  search-box grey lighten-5">
+        <form action="{{ url_for('search') }}" method="POST" class="col s12">
+            <div class="row valign-wrapper center-align">
+                <div class="input-field col s12 m6 center-align">
+                    <input type="text" name="query" id="query" minlength="2" class="validate" required>
+                    <label for="query">Look for recipes here</label>
+                </div>
+                <div class="col s12 m4">
+                    <a href="{{ url_for('get_recipes')}}" class="red btn">Reset</a>
+                    <button type="submit" class="green btn">G0!</button>
+                </div>
+            </div>
+        </form>
+    </div>
+   
 {% endblock %}

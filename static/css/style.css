@@ -32,23 +32,26 @@ textarea {
   resize: none;
 }
 
-label textarea{
-    vertical-align: middle;
-}
 
 .collapsible{
-    margin-top: 100px;
-    margin-left: 100px;
+    margin-top: 25px;
+ 
 }
-
 .slider{
-    margin-top: 100px;
-    margin-right: 100px;
+    margin-top: 25px;   
      
 }
+
 h3{
   color: black;
   font-weight: 700;
   background-color: #3CB371;
 
+}
+.search-box{
+    max-width: 700px;
+    align-content: center;
+    margin-left: 600px;
+    margin-top: 65px;
+    
 }

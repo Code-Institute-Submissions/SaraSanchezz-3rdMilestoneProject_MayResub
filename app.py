@@ -4,7 +4,6 @@ from flask import (
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
-import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
@@ -47,6 +46,7 @@ def register():
         session["user"] = request.form.get("username").lower
         flash("The Registration is been Successfull!")
         return redirect(url_for("profile", username=session["user"]))
+
     return render_template("register.html")
 
 
@@ -125,7 +125,7 @@ def recipe_description(recipe_id):
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
     if request.method == "POST":
-        update = {
+        submit = {
             "category_name": request.form.get("category_name"),
             "recipe_name": request.form.get("recipe_name"),
             "ingredients": request.form.getlist("ingredients"),
@@ -133,7 +133,7 @@ def edit_recipe(recipe_id):
             "dietary": request.form.get("dietary_options"),
             "created_by": session["user"]
         }
-        mongo.db.recipes.update({"_id": ObjectId}, update)
+        mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
         flash("Updated!")
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     categories = mongo.db.categories.find().sort("category_name")
@@ -148,6 +148,13 @@ def delete_recipe(recipe_id):
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
     flash("Deleted!")
     return redirect(url_for("get_recipes"))
+
+
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
+    return render_template("recipes.html", recipes=recipes)
 
 
 if __name__ == "__main__":
