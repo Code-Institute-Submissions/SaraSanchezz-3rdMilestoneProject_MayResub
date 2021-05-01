@@ -25,8 +25,8 @@
                 <label for="recipe_name">Recipe name</label>
             </div>  
             <div class="input-field col s12 m4">
-                <select id="category_name" name="category_name" class="validate" required>
-                <option  disabled selected>Pick Category</option>
+                <select id="category_name" name="category_name" class="validate" multiple required>
+                <option  disabled selected value="">Pick Category</option>
                 {% for category in categories %}
                     <option value="{{ category.category_name }}">{{ category.category_name }}</option>
                 {% endfor %}
@@ -40,13 +40,13 @@
                     <option value="{{ dietary.dietary_options }}">{{ dietary.dietary_options }}</option>
                 {% endfor %}
                 </select>
-                <label for="dietary_options">Dietary Options</label>
+                <label for="dietary_option">Dietary Options</label>
             </div>
     <!--Ingredients--> 
         <div class="row">
             <div class="input-field col s12 ">
                 <i class=" fas fa-list-ul prefix"></i>
-                <textarea id="ingredients" name="ingredients" minlength="5" maxlength="700" type="text" class="validate"  required></textarea>
+                <textarea id="ingredients" name="ingredients" minlength="5" maxlength="700" class="validate"  required></textarea>
                 <label for="recipe_name" > Ingredients</label>
             </div>
         </div>
@@ -54,7 +54,7 @@
          <div class="row">
                 <div class="input-field col s12  ">
                 <i class=" fas fa-list-ol prefix"></i>    
-                <textarea id="preparation_steps" name="preparation_steps" minlength="5" maxlength="4000" type="text"  class="validate"  required></textarea>
+                <textarea id="preparation_steps" name="preparation_steps" minlength="5" maxlength="4000" class="validate"  required></textarea>
                 <label for="preparation_steps" > Preparation</label>
             </div>
         </div>
