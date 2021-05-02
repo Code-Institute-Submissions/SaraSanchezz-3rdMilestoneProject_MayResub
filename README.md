@@ -88,6 +88,7 @@ manually tested in iPhone 6, 7 Plus, 8, xs, 12 pro, MacBook Pro 15", Asus VivoBo
 * The card containers from Materialize that have been used to organize the layout of the sign in and log in;
   from medium to small  screen sizes, the number of columns used per card is larger in a way it only shows one card at
   a time. Same with the input forms for editing and uploading recipes, and carousel and collapsible for the Home or Recipes page.
+* Footer is responsive in all devices. 
 
 
 ## Deployment ## 
@@ -123,9 +124,11 @@ Steps to run the code locally:
 - The content of the page is been written by me and at the projects page is been copied from the projects structure and requirements, from the module materials.
 - There are some parts of the code taken from Bootstrap componenents and after have been adjusted and modified it 
  to my web needs as for example:
-    - [Navbar](https://getbootstrap.com/docs/4.5/components/navbar/)
-    - [Collapsible](https://getbootstrap.com/docs/4.5/components/card/#header-and-footer)
-    - [Card-structure](https://getbootstrap.com/docs/4.5/components/card/)
+    - [Navbar](https://materializecss.com/navbar.html)
+    - [Collapsible](https://materializecss.com/collapsible.html)
+    - [Carousel](https://materializecss.com/carousel.html)
+    - [Card-structure](https://materializecss.com/cards.html)
+    - [Footer](https://materializecss.com/footer.html)
 
 ### Media ### 
 - The Hero image from the Website is been taken from [Unsplash](https://unsplash.com/)
