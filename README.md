@@ -6,7 +6,7 @@
 
 Project Goals:
  * Create an interactive , attractive and responsive online cookbook which offers recipes for Thermomix.
- * Sining up on the website is not requiered to access his content, however if registered you can take part of the site growth,
+ * Signing up on the website is not requiered to access his content, however if registered you can take part of the site growth,
  as well as having access to features that external users will not have. (CRUD)
  
 ### Design Process ###
@@ -23,7 +23,7 @@ To sketch the frontend part of the project I have used Blasamiq wireframes:
    <img src="static/images/wf5.png" alt="wireframe5" width="400" height="400"/>
    <img src="static/images/wf6.png" alt="wireframe6" width="400" height="400"/> 
    
-## Genral Features ##
+## General Features ##
 
 The website counts with four main pages visible for all users as Recipes or Home Page, Recipe_description which linkable from any recipe and 
 will display the full info about each recipe of them, separately. The access path for the full recipe is clicking on the GO button on the colapsible
@@ -104,8 +104,8 @@ Deployment steps:
 6. Validate selection.
 7. The ulr of the website is displayed.
 
-You can see the website [GitHub]()
-                        [Heroku]()
+You can see the website [GitHub](https://SaraSanchezz.github.io/3rdMilestoneProject/)
+                        [Heroku](https://oh-my-cook.herokuapp.com/)
 
 Steps to run the code locally:
 
